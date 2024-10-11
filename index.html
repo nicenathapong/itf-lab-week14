@@ -3,203 +3,111 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>ITF LAB WEEK14</title>
+        <title>67070045</title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            body {
+                font-family: "Anuphan", sans-serif;
+            }
+        </style>
     </head>
     <body>
-        <div class="w-full flex flex-col gap-6 items-center pt-[100px]">
-            <a
-                id="username"
-                href="https://github.com/nicenathapong"
-                class="text-2xl font-bold hover:text-blue-500 hover:underline"
-                >ณฐพงศ์ โสภาพล 67070045</a
-            >
-            <div class="relative w-[183px] aspect-[1/1]">
+        <div>
+            <div class="min-h-[60vh] relative">
+                <nav
+                    class="absolute top-0 left-0 w-full p-6 z-10 flex justify-center"
+                >
+                    <div
+                        class="w-[1200px] flex justify-between items-center text-black"
+                    >
+                        <h1 class="text-2xl font-bold">Hello World</h1>
+                        <a href="#about" class="text-xl">About</a>
+                    </div>
+                </nav>
                 <img
-                    id="profile"
-                    class="w-full rounded-full"
-                    src="profile.jpg"
-                    alt="profile"
+                    class="absolute top-0 left-0 w-full h-full object-cover object-center"
+                    src="https://m1r.ai/9/28u0i.png"
+                    alt="ba"
                 />
                 <div
-                    class="absolute bottom-3 right-3 w-[30px] aspect-[1/1] flex justify-center items-center text-white rounded-full bg-red-500"
-                >
-                    <p>1</p>
+                    class="h-[200px] w-full absolute bottom-0 left-0 bg-gradient-to-t from-white to-white/0"
+                ></div>
+            </div>
+            <div class="h-full flex justify-center bg-white">
+                <div class="w-[1200px] px-6 min-[1200px]:px-0 -mt-[50px] z-20">
+                    <h1 class="text-8xl font-bold mb-4">Nathapong Sopapol</h1>
+                    <p class="text-4xl mb-16">67070045</p>
+                    <div class="grid grid-cols-3 gap-6 mb-[200px]">
+                        <div class="bg-gray-100 p-6 rounded-xl">
+                            <p class="text-xl mb-2">ชื่อเล่น</p>
+                            <h1 class="text-4xl font-bold">ไนซ์</h1>
+                        </div>
+                        <div class="bg-gray-100 p-6 rounded-xl">
+                            <p class="text-xl mb-2">คณะ</p>
+                            <h1 class="text-4xl font-bold">
+                                เทคโนโลยีสารสนเทศ
+                            </h1>
+                        </div>
+                        <div class="bg-gray-100 p-6 rounded-xl">
+                            <p class="text-xl mb-2">สาขา</p>
+                            <h1 class="text-4xl font-bold">IT</h1>
+                        </div>
+                    </div>
+
+                    <div id="about" class="flex mb-48">
+                        <div class="min-w-[400px]">
+                            <h1 class="text-6xl font-bold text-blue-400">
+                                เกี่ยวกับฉัน
+                            </h1>
+                        </div>
+                        <div class="w-full text-xl">
+                            <p class="mb-12">
+                                ผมชื่อไนส์ อายุ 18
+                                เป็นคนที่รักในการเขียนโค้ดมากๆ คนหนึ่ง
+                                ชอบตอนที่ได้เขียนโค้ด เขียนระบบต่างๆ
+                                ชอบที่จะทำให้มันทำงานได้อย่างมีประสิทธิภาพสูงสุด
+                                และดีใจที่ได้เห็นผู้คนมีความสุขจากการใช้งานระบบของเรา
+                                ผมเป็นคนไม่ค่อยเล่นเกม เพราะสภาพปัจจุบันคือ
+                                ผมเปรียบการเขียนโค้ด
+                                เป็นการเล่นเกมสำหรับผมไปแล้ว 555+
+                            </p>
+                            <p class="mb-12">
+                                My name is Nice. I'm 18 years old. I'm a person
+                                who really loves coding. I enjoy writing code
+                                and creating various systems. I strive to make
+                                them work as efficiently as possible. It's
+                                rewarding to see people happy using our system.
+                                I'm a person who rarely plays games. Because, in
+                                my current condition, I liken writing code to
+                                playing games. It's already a game for me,
+                                hahaha!
+                            </p>
+                            <button
+                                type="button"
+                                class="px-6 py-3 bg-gray-100 font-semibold rounded-lg"
+                                onclick="window.location.href = 'https://nsys.site'"
+                            >
+                                view my website
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <form id="usernameForm" class="flex items-center gap-6">
-                <h1>Set the username</h1>
-                <input
-                    type="text"
-                    name="username"
-                    class="px-4 py-2 bg-gray-200 rounded-lg"
-                    placeholder="Enter Username"
-                    required
-                />
-                <button
-                    type="submit"
-                    class="bg-blue-400 text-white px-4 py-2 rounded-lg transition hover:scale-95 active:scale-90"
-                >
-                    SET
-                </button>
-            </form>
-            <form id="profileForm" class="flex items-center gap-6">
-                <h1>Set the profile image URL</h1>
-                <input
-                    type="url"
-                    name="imageUrl"
-                    class="px-4 py-2 bg-gray-200 rounded-lg"
-                    placeholder="Enter Image URL"
-                    required
-                />
-                <button
-                    type="submit"
-                    class="bg-blue-400 text-white px-4 py-2 rounded-lg transition hover:scale-95 active:scale-90"
-                >
-                    SET
-                </button>
-            </form>
-            <div>
-                <h1 class="text-center mb-3 text-xl font-bold">
-                    Phone Number List
-                </h1>
-                <form id="phoneNumberForm" class="flex items-center gap-4">
-                    <input
-                        type="text"
-                        name="name"
-                        class="px-4 py-2 bg-gray-200 rounded-lg"
-                        placeholder="Name"
-                        required
-                    />
-                    <input
-                        type="tel"
-                        name="phone"
-                        class="px-4 py-2 bg-gray-200 rounded-lg"
-                        placeholder="Tel"
-                        required
-                    />
-                    <button
-                        type="submit"
-                        class="bg-blue-400 text-white px-4 py-2 rounded-lg transition hover:scale-95 active:scale-90"
-                    >
-                        ADD
-                    </button>
-                    <button
-                        id="convertButton"
-                        type="button"
-                        class="bg-blue-400 text-white px-4 py-2 rounded-lg transition hover:scale-95 active:scale-90"
-                    >
-                        EXPORT
-                    </button>
-                </form>
-            </div>
-            <table class="w-[800px] text-left">
-                <thead>
-                    <tr class="bg-gray-200">
-                        <th class="px-4 py-2">No.</th>
-                        <th class="px-4 py-2">Name</th>
-                        <th class="px-4 py-2">Phone Number</th>
-                    </tr>
-                </thead>
-                <tbody id="phoneTableBody"></tbody>
-            </table>
         </div>
-        <script>
-            const username = document.getElementById("username");
-            const profile = document.getElementById("profile");
-
-            const usernameForm = document.getElementById("usernameForm");
-            const profileForm = document.getElementById("profileForm");
-
-            usernameForm.onsubmit = (e) => {
-                e.preventDefault();
-                const form = new FormData(e.target);
-                username.innerText = form.get("username");
-            };
-            profileForm.onsubmit = (e) => {
-                e.preventDefault();
-                const form = new FormData(e.target);
-                profile.src = form.get("imageUrl");
-            };
-
-            const phoneTableBody = document.getElementById("phoneTableBody");
-            const phoneNumberForm = document.getElementById("phoneNumberForm");
-            const convertButton = document.getElementById("convertButton");
-
-            const PHONES = [
-                {
-                    name: "Hello Kitty",
-                    phone: "0987654321",
-                },
-                {
-                    name: "Little Pony",
-                    phone: "0987654321",
-                },
-                {
-                    name: "Baby Carrot",
-                    phone: "0987654321",
-                },
-            ];
-
-            function updatePhoneData() {
-                phoneTableBody.innerHTML = PHONES.map(
-                    (p, idx) => `<tr class="border-b border-gray-200">
-                    <td class="px-4 py-2">
-                        ${idx + 1}
-                    </td>
-                    <td class="px-4 py-2">
-                        ${p.name}
-                    </td>
-                    <td class="px-4 py-2">
-                        ${p.phone}
-                    </td>
-                </tr>`
-                ).join("");
-            }
-
-            phoneNumberForm.onsubmit = (e) => {
-                e.preventDefault();
-                const form = new FormData(e.target);
-                PHONES.push({
-                    name: form.get("name"),
-                    phone: form.get("phone"),
-                });
-                updatePhoneData();
-            };
-
-            updatePhoneData();
-
-            function convertJSONtoCSV(jsonData) {
-                const headers = Object.keys(jsonData[0]);
-
-                let csvContent = headers.join(",") + "\n";
-
-                jsonData.forEach((row) => {
-                    let values = headers.map((header) => {
-                        let cellValue =
-                            row[header] === null || row[header] === undefined
-                                ? ""
-                                : row[header];
-                        cellValue = cellValue.toString().replace(/"/g, '""');
-                        return `"${cellValue}"`;
-                    });
-                    csvContent += values.join(",") + "\n";
-                });
-
-                return csvContent;
-            }
-
-            convertButton.onclick = (e) => {
-                e.preventDefault();
-
-                const csvContent = convertJSONtoCSV(PHONES);
-                const blob = new Blob([csvContent], {
-                    type: "text/csv;charset=utf-8;",
-                });
-                const url = URL.createObjectURL(blob);
-
-                window.open(url);
-            };
-        </script>
+        <footer class="text-center p-6">
+            <p class="text-gray-400">
+                Made with love by
+                <a href="https://nsys.site" class="text-blue-400 underline"
+                    >nSys</a
+                >
+                ✨
+            </p>
+        </footer>
     </body>
 </html>

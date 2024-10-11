@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ITF LAB WEEK14</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <div class="w-full flex flex-col gap-6 items-center pt-[100px]">
+            <a
+                id="username"
+                href="https://github.com/nicenathapong"
+                class="text-2xl font-bold hover:text-blue-500 hover:underline"
+                >ณฐพงศ์ โสภาพล 67070045</a
+            >
+            <div class="relative w-[183px] aspect-[1/1]">
+                <img
+                    id="profile"
+                    class="w-full rounded-full"
+                    src="profile.jpg"
+                    alt="profile"
+                />
+                <div
+                    class="absolute bottom-3 right-3 w-[30px] aspect-[1/1] flex justify-center items-center text-white rounded-full bg-red-500"
+                >
+                    <p>1</p>
+                </div>
+            </div>
+            <form id="usernameForm" class="flex items-center gap-6">
+                <h1>Set the username</h1>
+                <input
+                    type="text"
+                    name="username"
+                    class="px-4 py-2 bg-gray-100 rounded-lg"
+                    placeholder="Enter Username"
+                    required
+                />
+                <button
+                    type="submit"
+                    class="bg-blue-400 text-white px-4 py-2 rounded-lg transition hover:scale-95 active:scale-90"
+                >
+                    SET
+                </button>
+            </form>
+            <form id="profileForm" class="flex items-center gap-6">
+                <h1>Set the profile image URL</h1>
+                <input
+                    type="url"
+                    name="imageUrl"
+                    class="px-4 py-2 bg-gray-100 rounded-lg"
+                    placeholder="Enter Image URL"
+                    required
+                />
+                <button
+                    type="submit"
+                    class="bg-blue-400 text-white px-4 py-2 rounded-lg transition hover:scale-95 active:scale-90"
+                >
+                    SET
+                </button>
+            </form>
+            <div>
+                <h1 class="text-center mb-3 text-xl font-bold">
+                    Phone Number List
+                </h1>
+                <form id="phoneNumberForm" class="flex items-center gap-4">
+                    <input
+                        type="text"
+                        name="name"
+                        class="px-4 py-2 bg-gray-100 rounded-lg"
+                        placeholder="Name"
+                        required
+                    />
+                    <input
+                        type="tel"
+                        name="phone"
+                        class="px-4 py-2 bg-gray-100 rounded-lg"
+                        placeholder="Tel"
+                        required
+                    />
+                    <button
+                        type="submit"
+                        class="bg-blue-400 text-white px-4 py-2 rounded-lg transition hover:scale-95 active:scale-90"
+                    >
+                        ADD
+                    </button>
+                    <button
+                        id="convertButton"
+                        type="button"
+                        class="bg-blue-400 text-white px-4 py-2 rounded-lg transition hover:scale-95 active:scale-90"
+                    >
+                        EXPORT
+                    </button>
+                </form>
+            </div>
+            <table class="w-[800px] text-left">
+                <thead>
+                    <tr class="bg-gray-100">
+                        <th class="px-4 py-2">No.</th>
+                        <th class="px-4 py-2">Name</th>
+                        <th class="px-4 py-2">Phone Number</th>
+                    </tr>
+                </thead>
+                <tbody id="phoneTableBody"></tbody>
+            </table>
+        </div>
+        <script>
+            const username = document.getElementById("username");
+            const profile = document.getElementById("profile");
+
+            const usernameForm = document.getElementById("usernameForm");
+            const profileForm = document.getElementById("profileForm");
+
+            usernameForm.onsubmit = (e) => {
+                e.preventDefault();
+                const form = new FormData(e.target);
+                username.innerText = form.get("username");
+            };
+            profileForm.onsubmit = (e) => {
+                e.preventDefault();
+                const form = new FormData(e.target);
+                profile.src = form.get("imageUrl");
+            };
+
+            const phoneTableBody = document.getElementById("phoneTableBody");
+            const phoneNumberForm = document.getElementById("phoneNumberForm");
+            const convertButton = document.getElementById("convertButton");
+
+            const PHONES = [
+                {
+                    name: "Hello Kitty",
+                    phone: "0987654321",
+                },
+                {
+                    name: "Little Pony",
+                    phone: "0987654321",
+                },
+                {
+                    name: "Baby Carrot",
+                    phone: "0987654321",
+                },
+            ];
+
+            function updatePhoneData() {
+                phoneTableBody.innerHTML = PHONES.map(
+                    (p, idx) => `<tr class="border-b border-gray-100">
+                    <td class="px-4 py-2">
+                        ${idx + 1}
+                    </td>
+                    <td class="px-4 py-2">
+                        ${p.name}
+                    </td>
+                    <td class="px-4 py-2">
+                        ${p.phone}
+                    </td>
+                </tr>`
+                ).join("");
+            }
+
+            phoneNumberForm.onsubmit = (e) => {
+                e.preventDefault();
+                const form = new FormData(e.target);
+                PHONES.push({
+                    name: form.get("name"),
+                    phone: form.get("phone"),
+                });
+                updatePhoneData();
+            };
+
+            updatePhoneData();
+
+            function convertJSONtoCSV(jsonData) {
+                const headers = Object.keys(jsonData[0]);
+
+                let csvContent = headers.join(",") + "\n";
+
+                jsonData.forEach((row) => {
+                    let values = headers.map((header) => {
+                        let cellValue =
+                            row[header] === null || row[header] === undefined
+                                ? ""
+                                : row[header];
+                        cellValue = cellValue.toString().replace(/"/g, '""');
+                        return `"${cellValue}"`;
+                    });
+                    csvContent += values.join(",") + "\n";
+                });
+
+                return csvContent;
+            }
+
+            convertButton.onclick = (e) => {
+                e.preventDefault();
+
+                const csvContent = convertJSONtoCSV(PHONES);
+                const blob = new Blob([csvContent], {
+                    type: "text/csv;charset=utf-8;",
+                });
+                const url = URL.createObjectURL(blob);
+
+                window.open(url);
+            };
+        </script>
+    </body>
+</html>
